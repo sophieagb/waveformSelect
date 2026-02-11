@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Keyboard</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="cupid-container" id="cupidContainer"></div>
+    
+    <!-- ENVELOPE -->
+    <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+                <div class="envelope-heart"></div>
+                <p class="envelope-text">Open Me</p>
+            </div>
+        </div>
+        
+        <div class="controls-card" id="controlsCard">
+            <button class="close-btn" id="closeBtn">✕</button>
+            
+            <h2> Synth Controls</h2>
+            
+            <!-- Mix Controls -->
+            <div class="control-section">
+                <h3>Mix Levels</h3>
+                <div class="control-group">
+                    <label for="additiveMix">Additive: <span id="additiveMixValue">0.9</span></label>
+                    <input type="range" id="additiveMix" min="0" max="1" step="0.01" value="0.9">
+                </div>
+                <div class="control-group">
+                    <label for="amMix">AM: <span id="amMixValue">0.1</span></label>
+                    <input type="range" id="amMix" min="0" max="1" step="0.01" value="0.1">
+                </div>
+                <div class="control-group">
+                    <label for="fmMix">FM: <span id="fmMixValue">0.1</span></label>
+                    <input type="range" id="fmMix" min="0" max="1" step="0.01" value="0.1">
+                </div>
+            </div>
+
+            <!-- Additive Synthesis Controls -->
+            <div class="control-section">
+                <h3>Additive</h3>
+                <div class="control-group">
+                    <label for="numPartials">Partials: <span id="numPartialsValue">4</span></label>
+                    <input type="range" id="numPartials" min="2" max="10" step="1" value="4">
+                </div>
+            </div>
+
+            <!-- AM Synthesis Controls -->
+            <div class="control-section">
+                <h3>AM Synthesis</h3>
+                <div class="control-group">
+                    <label for="amModFreq">Freq: <span id="amModFreqValue">8</span> Hz</label>
+                    <input type="range" id="amModFreq" min="0.5" max="20" step="0.5" value="8">
+                </div>
+                <div class="control-group">
+                    <label for="amModDepth">Depth: <span id="amModDepthValue">0.5</span></label>
+                    <input type="range" id="amModDepth" min="0" max="1" step="0.05" value="0.5">
+                </div>
+            </div>
+
+            <!-- FM Synthesis Controls -->
+            <div class="control-section">
+                <h3>FM Synthesis</h3>
+                <div class="control-group">
+                    <label for="fmRatio">Ratio: <span id="fmRatioValue">2.0</span></label>
+                    <input type="range" id="fmRatio" min="0.5" max="8" step="0.1" value="2">
+                </div>
+                <div class="control-group">
+                    <label for="fmModDepth">Depth: <span id="fmModDepthValue">100</span></label>
+                    <input type="range" id="fmModDepth" min="0" max="500" step="10" value="100">
+                </div>
+            </div>
+
+            <!-- LFO Controls -->
+            <div class="control-section">
+                <h3>LFO (Vibrato)</h3>
+                <div class="control-group">
+                    <label for="lfoFreq">Speed: <span id="lfoFreqValue">5</span> Hz</label>
+                    <input type="range" id="lfoFreq" min="0.1" max="15" step="0.1" value="5">
+                </div>
+                <div class="control-group">
+                    <label for="lfoDepth">Depth: <span id="lfoDepthValue">10</span> Hz</label>
+                    <input type="range" id="lfoDepth" min="0" max="50" step="1" value="10">
+                </div>
+            </div>
+
+            <!-- ADSR Envelope Controls -->
+            <div class="control-section">
+                <h3>ADSR</h3>
+                <div class="control-group">
+                    <label for="attackTime">Attack: <span id="attackTimeValue">0.01</span>s</label>
+                    <input type="range" id="attackTime" min="0.001" max="1" step="0.01" value="0.01">
+                </div>
+                <div class="control-group">
+                    <label for="decayTime">Decay: <span id="decayTimeValue">0.1</span>s</label>
+                    <input type="range" id="decayTime" min="0.01" max="1" step="0.01" value="0.1">
+                </div>
+                <div class="control-group">
+                    <label for="sustainLevel">Sustain: <span id="sustainLevelValue">0.7</span></label>
+                    <input type="range" id="sustainLevel" min="0" max="1" step="0.05" value="0.7">
+                </div>
+                <div class="control-group">
+                    <label for="releaseTime">Release: <span id="releaseTimeValue">0.3</span>s</label>
+                    <input type="range" id="releaseTime" min="0.01" max="2" step="0.05" value="0.3">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Keyboard</h1>
+        
+        <div class="controls">
+            <label>Waveform: 
+                <select id="waveformSelect">
+                    <option value="sine">Sine</option>
+                    <option value="sawtooth">Sawtooth</option>
+                </select>
+            </label>
+            <a href="https://www.youtube.com/watch?v=9PBZy9j3H3I" target="_blank" class="song-link"> Listen to "Love" </a>
+        </div>
+
+        <div class="keyboard" id="keyboard">
+        </div>
+
+        <p style="text-align: center; margin-top: 20px; color: #666;">
+            Click the keys or use your keyboard to play!<br>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
